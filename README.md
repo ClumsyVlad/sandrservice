@@ -1,1 +1,1 @@
-just my first noob paid site 
+Just my first paid but noob site.
