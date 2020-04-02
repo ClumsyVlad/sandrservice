@@ -1,0 +1,28 @@
+.footer-nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: $brand-blue;
+    color: darken($brand-gray, 45%);
+
+    li {
+        text-align: center;
+        vertical-align: middle;
+        position: relative;
+        width: 100%;
+        padding: 20px 0px;
+    }
+    li:not(:first-child):before {
+        content: '|';
+        position: absolute;
+        left: 0;
+        margin-top: -2px;
+    }
+
+    .footer-nav-link {
+    }
+}

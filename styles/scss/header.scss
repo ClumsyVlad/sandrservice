@@ -1,0 +1,76 @@
+.nav-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: transparent;
+}
+
+.header-brand {
+    padding-left: 10px;
+    display: flex;
+}
+
+.header-brand img { 
+    height: 100px;
+    width: auto;
+}
+
+.header-brand ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brand-slogan a {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: center;
+    .brand-name {
+        text-transform: uppercase;
+        font-size: 22px;
+        color: $brand-gray;
+        letter-spacing: 5px;
+        word-spacing: 7px;
+        font-weight: bolder;
+    }
+    .sub-slogan {
+        text-transform: uppercase;
+        font-size: 14px;
+        color: $brand-gray;
+        letter-spacing: 2px;
+        word-spacing: 9px;
+        margin-top: 5px;
+    }
+}
+
+.menu-wrapper {
+    display: flex;
+    height: 75px;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: $brand-blue;
+    padding-left: 150px;
+    border-radius: 0px 0px 0px 100%;
+
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+    padding: 20px 20px;
+    ul {
+        display: inline-flex;
+        list-style: none;
+        li:not(:first-child) {
+            margin-left: 20px;
+        }
+        li a {
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 24px;
+            color: #fff;
+        }
+    }
+}
