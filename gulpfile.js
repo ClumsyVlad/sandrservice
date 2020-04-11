@@ -53,7 +53,7 @@ gulp.task ('minify-css', function cleanCSS () {
         .pipe(cleanCSS({
             compatibility: '*'
         }))
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./dist/css/'))
 });
 
 function watch () {
