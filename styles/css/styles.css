@@ -302,7 +302,7 @@ section {
     vertical-align: middle;
     position: relative;
     width: 100%;
-    padding: 2px 0px; }
+    padding: 20px 0px; }
   .footer-nav-menu li:not(:first-child):before {
     content: '|';
     position: absolute;
