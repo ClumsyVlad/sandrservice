@@ -8,11 +8,11 @@ const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const browserSync = require('browser-sync').create();
 
-gulp.task('imagemin', function () {
+function images() {
     return gulp.src('./src/imgs/*')
         .pipe(imagemin([
             imagemin.mozjpeg({quality: 85, progressive: true}),
-            imagemin.optipng({optimizationLevel: 5}),
+            imagemin.optipng({optimizationLevel: 6}),
             imagemin.svgo({
                 plugins: [
                     {removeViewBox: true},
@@ -21,82 +21,63 @@ gulp.task('imagemin', function () {
             })
         ]))
         .pipe(gulp.dest('./dist/images/'))
-    // console.log('task "imagemin" started')
-});
+};
 
-gulp.task ('rigger', function () {
+function htmlBuild() {
     return gulp.src('./src/*.html')
         .pipe(rigger())
         .pipe(gulp.dest('./dist'))
-    // console.log('task "rigger" started')
-});
+        .pipe(browserSync.stream())
+};
 
-gulp.task ('uglify', function () {
+function scriptsBuild() {
     return gulp.src('./src/js/*.js')
         .pipe(uglify())
         .pipe(gulp.dest('./dist/js/'))
-    // console.log('task "uglify" started')
-});
+        .pipe(browserSync.stream())
+};
 
-gulp.task ('sass', function () {
+function sassBuild() {
     return gulp.src('./src/styles/scss/**/styles.scss') /* indicate where the .scss file is stored */
         .pipe(sass())
         .pipe(gulp.dest('./src/styles/css/'))
         .pipe(browserSync.stream())
-    // console.log('task "sass" started')
-});
+};
 
-gulp.task ('prefix-min', function () {
+function prefixMin() {
     return gulp.src('./src/styles/css/*.css')
         .pipe(autoprefixer({
-            // browserslist: ['> 0.5%, last 2 versions, Firefox ESR, not dead'],
+            overrideBrowserslist: ['> 0.5%, last 2 versions, Firefox ESR, not dead'],
             cascade: true
         }))
         .pipe(cleanCSS({
             compatibility: '*'
         }))
         .pipe(gulp.dest('./dist/css/'))
-    // console.log('task "prefix-min" started')
-});
+        .pipe(browserSync.stream())
+};
 
-// gulp.task ('minify-css', function () {
-//     return gulp.src('./dist/css/*.css')
-//         .pipe(cleanCSS({
-//             compatibility: '*'
-//         }))
-//         .pipe(gulp.dest('./dist/css/styles.css'))
-// });
+function watch () {
+    browserSync.init ({
+        server: {
+            baseDir: "./dist/"
+        }
+    })
+    gulp.watch ('./src/**/*.scss', series (sassBuild, prefixMin));
+    gulp.watch ('./src/**/*.css', prefixMin);
+    gulp.watch ('./src/**/*.html', htmlBuild);
+    gulp.watch ('./src/**/*.js', scriptsBuild);
+    gulp.watch ('./src/imgs/*', images);
+};
 
+exports.images = images;
+exports.htmlBuild = htmlBuild;
+exports.scriptsBuild = scriptsBuild;
+exports.sassBuild = sassBuild;
+exports.prefixMin = prefixMin;
 
-
-// function watch () {
-//     browserSync.init ({
-//         server: {
-//             baseDir: "./dist/"
-//         }
-//     })
-//     gulp.watch ('./**/*.scss', style);
-//     gulp.watch ('./**/*.css', style);
-//     gulp.watch ('**/*.html').on('change', browserSync.reload);
-// };
-
-// gulp.task('watch', function () {
-//     gulp.watch (('./dist/**/*'), function(event, cb) {
-//         gulp.start('build');
-//     });
-// });
-
-// gulp.task('webserver', function () {
-//     browserSync.init ({
-//         server: {
-//             baseDir: "./dist/"
-//         }
-//     })
-// });
-
-// gulp.task('build', ['imagemin', 'rigger', 'uglify', 'sass', 'prefix-min']
-// , function(){}
-// );
-exports.build = series(imagemin, rigger, uglify, sass, prefix-min);
-// exports.style = style;
-// exports.watch = watch;
+exports.mediaBuild = series(images);
+exports.styleBuild = series (sassBuild, prefixMin);
+exports.build = series(images, htmlBuild, scriptsBuild, sassBuild, prefixMin);
+exports.watch = watch;
+exports.buildandwatch = series(images, htmlBuild, scriptsBuild, sassBuild, prefixMin, watch);
