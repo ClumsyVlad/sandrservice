@@ -1,0 +1,1 @@
+$(document).ready(function(){new Swiper("#services-slider",{speed:400,spaceBetween:100,autoplay:{delay:5e3}}),new Swiper("#clients-slider",{speed:400,spaceBetween:50,slidesPerView:3,autoplay:{delay:5e3}})});

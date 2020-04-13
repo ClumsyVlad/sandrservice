@@ -201,9 +201,7 @@ section {
   grid-template-columns: 25% 25% 2fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 2fr;
   gap: 10px;
-  grid-template-areas: "left-item-1 left-item-2 right-item-0 right-item-0 right-item-0"
- "left-item-1 left-item-2 right-item-1 right-item-3 right-item-6"
- "left-item-1 left-item-3 right-item-2 right-item-4 right-item-5"; }
+  grid-template-areas: "left-item-1 left-item-2 right-item-0 right-item-0 right-item-0" "left-item-1 left-item-2 right-item-1 right-item-3 right-item-6" "left-item-1 left-item-3 right-item-2 right-item-4 right-item-5"; }
 
 .left-item-1 {
   grid-area: left-item-1;
@@ -260,8 +258,7 @@ section {
   grid-template-columns: 25% 1fr 2fr 1fr 25%;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
-  grid-template-areas: "help-section-1 help-section-2 help-section-3 help-section-3 help-section-4"
- "help-section-1 help-section-5 help-section-5 help-section-6 help-section-4"; }
+  grid-template-areas: "help-section-1 help-section-2 help-section-3 help-section-3 help-section-4" "help-section-1 help-section-5 help-section-5 help-section-6 help-section-4"; }
 
 .help-section-1 {
   grid-area: help-section-1;
