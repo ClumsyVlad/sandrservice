@@ -30,26 +30,31 @@ h1 {
   font-weight: 900;
   text-transform: uppercase;
   padding-bottom: 20px;
-  font-size: 24px; }
+  font-size: 24px;
+  color: #22252a; }
 
 h2 {
   font-weight: 800;
   text-transform: uppercase;
   padding-bottom: 20px;
-  font-size: 22px; }
+  font-size: 22px;
+  color: #22252a; }
 
 h3 {
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 20px; }
+  font-size: 20px;
+  color: #22252a; }
 
 .h4 {
   font-weight: 600;
-  font-size: 18px; }
+  font-size: 18px;
+  color: #22252a; }
 
 .h5 {
   font-weight: 600;
-  font-size: 16px; }
+  font-size: 16px;
+  color: #22252a; }
 
 ul {
   margin-block-start: 0px;
@@ -349,6 +354,9 @@ section {
   font-size: 20px;
   color: #2eb2ff;
   text-align: center; }
+
+.section-sub-title {
+  color: #22252a; }
 
 .contact-block {
   display: flex;
