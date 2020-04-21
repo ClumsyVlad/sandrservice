@@ -7,6 +7,7 @@ const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const browserSync = require('browser-sync').create();
+const clean = require('gulp-clean');
 
 function images() {
     return gulp.src('./src/imgs/*')
@@ -70,6 +71,16 @@ function watch () {
     gulp.watch ('./src/imgs/*', images);
 };
 
+function cleangit () {
+    return gulp.src('docs/*', {read: false})
+        .pipe(clean());
+};
+
+function buildgit () {
+    return gulp.src('./dist/**/*.*')
+        .pipe(gulp.dest('docs'))
+}
+
 exports.images = images;
 exports.htmlBuild = htmlBuild;
 exports.scriptsBuild = scriptsBuild;
@@ -81,3 +92,7 @@ exports.styleBuild = series (sassBuild, prefixMin);
 exports.build = series(images, htmlBuild, scriptsBuild, sassBuild, prefixMin);
 exports.watch = watch;
 exports.buildandwatch = series(images, htmlBuild, scriptsBuild, sassBuild, prefixMin, watch);
+
+exports.cleangit = cleangit;
+exports.buildgit = buildgit;
+exports.demogit = series(cleangit, buildgit);
