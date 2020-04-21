@@ -1,65 +1,69 @@
-.nav-wrapper {
+.header-nav {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
-    background-color: transparent;
+    align-items: flex-end;
+    padding: 0px 20px 5px;
+    background-color: $brand-dark;
+    border-bottom: 2px solid $brand-orange;
 }
 
 .header-brand {
-    padding-left: 10px;
     display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    .header-logo img{ 
+        height: 100px;
+        width: auto;
+    }
 }
 
-.header-brand img { 
-    height: 100px;
-    width: auto;
-}
+.header-brand:hover {
 
-.header-brand ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    .header-logo img{
+        animation: spinlogo 1s cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    }
 
-.brand-slogan a {
+    .brand-name, .sub-slogan {
+        color: $brand-orange;
+    }
+}
+.brand-slogan {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-content: center;
+
     .brand-name {
         text-transform: uppercase;
-        font-size: 22px;
-        color: $brand-gray;
+        font-size: 18px;
         letter-spacing: 5px;
-        word-spacing: 7px;
         font-weight: bolder;
+        color: $brand-gray;
     }
+
     .sub-slogan {
         text-transform: uppercase;
-        font-size: 14px;
-        color: $brand-gray;
+        font-size: 10px;
         letter-spacing: 2px;
-        word-spacing: 9px;
+        word-spacing: 22px;
         margin-top: 5px;
+        color: $brand-gray;
     }
 }
 
 .menu-wrapper {
     display: flex;
-    height: 75px;
     justify-content: flex-end;
     align-items: center;
-    background-color: $brand-blue;
-    padding-left: 150px;
-    border-radius: 0px 0px 0px 100%;
-
 }
 
 .header-menu {
     display: flex;
     align-items: center;
-    padding: 20px 20px;
     ul {
         display: inline-flex;
         list-style: none;
@@ -70,7 +74,7 @@
             text-decoration: none;
             text-transform: uppercase;
             font-size: 24px;
-            color: #fff;
+            font-weight: 700;
         }
     }
 }
