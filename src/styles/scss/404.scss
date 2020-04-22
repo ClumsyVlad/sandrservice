@@ -1,0 +1,48 @@
+.error-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 20px 0px 30px;
+    width: 100%;
+
+    .error-page-title {
+        font-size: 3rem;
+        color: $brand-blue;
+    }
+    
+    .error-page-description {
+        font-size: 200px;
+        color: $brand-pink;
+        font-weight: 700;
+        text-align: center;
+    }
+    
+    .error-page-explanation {
+        font-size: 30px;
+        text-align: justify;
+        color: $brand-pink;
+        font-weight: 700;
+        text-transform: uppercase;
+        word-spacing: 20px;
+    }
+
+    .error-page-path {
+        margin-top: 40px;
+
+        .error-page-link {
+            color: $brand-blue;
+            font-size: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 15px 30px;
+            border: 4px solid $brand-blue;
+
+            &:hover {
+                background-color: $brand-blue;
+                color: #fff;
+            }
+        }
+    }
+}
