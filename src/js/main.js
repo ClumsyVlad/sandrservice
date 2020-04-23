@@ -1,23 +1,17 @@
 $(document).ready(function() {
-    var ServicesSwiper = new Swiper('#services-slider', {
+    var ServicesSwiper = new Swiper('.main-slider', {
         speed: 400,
-        spaceBetween: 30,
+        spaceBetween: 0,
         slidesPerView: 1,
         autoplay: {
             delay: 5000,    
         },
-        loop: true,
-        grabCursor: true 
+        // loop: true,
+        grabCursor: false,
+        scrollbar: {
+            el: '.swiper-scrollbar',
+            hide: true
+        }
     });
 
-    // var ClientsSwiper = new Swiper('#clients-slider', {
-    //     speed: 400,
-    //     spaceBetween: 50,
-    //     slidesPerView: 3,
-    //     autoplay: {
-    //         delay: 5000,
-    //     },
-    //     loop: true,
-    //     grabCursor: true 
-    // });
 })

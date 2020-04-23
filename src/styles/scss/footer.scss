@@ -1,5 +1,36 @@
-footer {
+.footer {
     background-color: $brand-dark;
+    border: none;
+    box-sizing: border-box;
+    flex-shrink: 0;
+
+    .creater-by {
+        // padding: 10px 0px;
+        margin-bottom: 10px;
+        color: $brand-orange;
+        font-size: 14px;
+        text-align: center;
+
+        .created-by-autor {
+            font-size: 16px;
+            font-weight: 700;
+            // animation: pulse 10s ease-in;
+
+            // &:hover {
+            //     & {
+            //     animation: spinlogo 10s ease-in;
+            //     color: yellow;
+            //     }
+            // }
+        }       
+    }
+}
+
+.creater-by:hover {
+    .created-by-autor {
+        color: black;
+        animation: spinlogo 1s cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    }
 }
 
 .footer-nav-menu {
@@ -11,7 +42,11 @@ footer {
     font-weight: bolder;
     text-transform: uppercase;
 
-    li {
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+    }
+
+    .footer-nav-menu-item {
         display: flex;
         text-align: center;
         vertical-align: middle;
@@ -19,29 +54,14 @@ footer {
         padding: 20px 0px;
         width: 100%;
 
+        @media screen and (max-width: 500px) {
+            & {
+                padding: 10px;
+            }
+        }
+
         & .footer-nav-link {
             width: 100%;
         }
     }
-
-    li:not(:first-child):before {
-        content: '|';
-        position: absolute;
-        left: 0;
-        color: $brand-blue;
-    }
-
 }
-
-// footer .footer-wrapper .created-by {
-//     padding: 100px;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: center;
-//     color: $brand-blue;
-
-//     .created-by-autor {
-//         font-size: 18px;
-//         font-weight: 700;
-//     }
-// }

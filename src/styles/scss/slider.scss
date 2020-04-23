@@ -1,0 +1,36 @@
+/* slides */
+
+.main-slider-wrapper {
+    display: flex;
+    height: 400px;
+    background-color: $brand-gray;
+}
+.main-slider {
+    height: 100%;
+    width: 100%;
+    user-select: none;
+}
+
+.first-main-slide {
+    background-color: $brand-pink;
+}
+
+.second-main-slide {
+    background-color: $brand-blue;
+}
+
+.third-main-slide {
+    background-color: $brand-green;
+}
+
+.fourth-main-slide {
+    background-color: $brand-orange;
+}
+
+.single-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px;
+    height: 100%;
+}
