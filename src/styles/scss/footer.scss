@@ -4,32 +4,27 @@
     box-sizing: border-box;
     flex-shrink: 0;
 
-    .creater-by {
-        // padding: 10px 0px;
-        margin-bottom: 10px;
+    .created-by {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+        margin: 5px 0px 10px;
         color: $brand-orange;
         font-size: 14px;
-        text-align: center;
+        
+            .created-by-autor {
+                padding-left: 10px;
+                &:hover {
+                animation: bounce 0.7s;
+                }
+            }
+        
 
-        .created-by-autor {
-            font-size: 16px;
+        .created-by-name {
+            font-size: 18px;
             font-weight: 700;
-            // animation: pulse 10s ease-in;
-
-            // &:hover {
-            //     & {
-            //     animation: spinlogo 10s ease-in;
-            //     color: yellow;
-            //     }
-            // }
         }       
-    }
-}
-
-.creater-by:hover {
-    .created-by-autor {
-        color: black;
-        animation: spinlogo 1s cubic-bezier(0.445, 0.050, 0.550, 0.950);
     }
 }
 

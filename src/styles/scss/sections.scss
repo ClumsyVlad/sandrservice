@@ -187,6 +187,7 @@
                 padding: 5px 10px;
                 border-bottom: 2px solid $brand-blue;
                 color: $brand-dark;
+                transition: s;
                 
                 &::placeholder {
                     color: $brand-dark;
@@ -198,7 +199,8 @@
                 }
 
                 &:focus {
-                    border-bottom: 2px solid $brand-orange;
+                transition: 1s;
+                border-bottom: 2px solid $brand-orange;
                 }
             }
         }

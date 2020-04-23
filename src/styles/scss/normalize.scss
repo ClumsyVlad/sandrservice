@@ -19,6 +19,7 @@ html {
   -webkit-text-size-adjust: 100%;
   margin: 0px;
   padding: 0px;
+  color: $brand-dark;
 }
 
 main {
@@ -96,6 +97,7 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+  user-select: none;
 }
 
 img {

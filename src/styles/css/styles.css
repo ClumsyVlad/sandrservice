@@ -13,7 +13,8 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   margin: 0px;
-  padding: 0px; }
+  padding: 0px;
+  color: #22252a; }
 
 main {
   flex: 1 0 auto; }
@@ -81,7 +82,8 @@ a {
   background-color: transparent;
   cursor: pointer;
   text-decoration: none;
-  color: inherit; }
+  color: inherit;
+  user-select: none; }
 
 img {
   border-style: none; }
@@ -325,13 +327,15 @@ input {
         width: 100%;
         padding: 5px 10px;
         border-bottom: 2px solid #2eb2ff;
-        color: #22252a; }
+        color: #22252a;
+        transition: s; }
         .contact-form .contact-item .contact-input input::placeholder, .contact-form .contact-item .contact-input textarea::placeholder {
           color: #22252a;
           font-weight: 700; }
         .contact-form .contact-item .contact-input input:focus, .contact-form .contact-item .contact-input textarea:focus {
           outline: none; }
         .contact-form .contact-item .contact-input input:focus, .contact-form .contact-item .contact-input textarea:focus {
+          transition: 1s;
           border-bottom: 2px solid #ffbd4a; }
     .contact-form .contact-item .contact-rules {
       font-size: 12px;
@@ -432,18 +436,21 @@ a {
   border: none;
   box-sizing: border-box;
   flex-shrink: 0; }
-  .footer .creater-by {
-    margin-bottom: 10px;
+  .footer .created-by {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 5px 0px 10px;
     color: #ffbd4a;
-    font-size: 14px;
-    text-align: center; }
-    .footer .creater-by .created-by-autor {
-      font-size: 16px;
+    font-size: 14px; }
+    .footer .created-by .created-by-autor {
+      padding-left: 10px; }
+      .footer .created-by .created-by-autor:hover {
+        animation: bounce 0.7s; }
+    .footer .created-by .created-by-name {
+      font-size: 18px;
       font-weight: 700; }
-
-.creater-by:hover .created-by-autor {
-  color: black;
-  animation: spinlogo 1s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
 
 .footer-nav-menu {
   display: flex;
