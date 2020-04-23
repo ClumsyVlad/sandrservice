@@ -1,1 +1,1 @@
-$(document).ready(function(){new Swiper("#services-slider",{speed:400,spaceBetween:30,slidesPerView:1,autoplay:{delay:5e3},loop:!0,grabCursor:!0})});
+$(document).ready(function(){new Swiper(".main-slider",{speed:400,spaceBetween:0,slidesPerView:1,autoplay:{delay:5e3},grabCursor:!1,scrollbar:{el:".swiper-scrollbar",hide:!0}})});
