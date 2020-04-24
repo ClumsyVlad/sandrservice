@@ -125,7 +125,8 @@ input {
 .header-brand {
   display: flex;
   flex-direction: row;
-  align-items: flex-end; }
+  align-items: flex-end;
+  transition: 3s; }
   @media screen and (max-width: 500px) {
     .header-brand {
       align-items: center;
@@ -152,14 +153,16 @@ input {
     font-size: 18px;
     letter-spacing: 5px;
     font-weight: bolder;
-    color: #a8a8a8; }
+    color: #a8a8a8;
+    transition: 0.3s; }
   .brand-slogan .sub-slogan {
     text-transform: uppercase;
     font-size: 10px;
     letter-spacing: 2px;
     word-spacing: 22px;
     margin-top: 5px;
-    color: #a8a8a8; }
+    color: #a8a8a8;
+    transition: 0.3s; }
     @media screen and (max-width: 500px) {
       .brand-slogan .sub-slogan {
         display: none; } }
@@ -260,7 +263,8 @@ input {
   flex-direction: column;
   justify-content: space-between;
   align-content: center;
-  padding: 20px; }
+  padding: 20px;
+  transition: 0.5s; }
   .grid-section-item .grid-item-img {
     display: flex;
     justify-content: center; }
@@ -541,3 +545,34 @@ a {
   justify-content: space-evenly;
   padding: 20px;
   height: 100%; }
+  .single-slide .slide-title {
+    font-size: 2rem;
+    margin-top: 2%;
+    margin-left: 5%;
+    font-weight: 700;
+    color: #22252a; }
+  .single-slide .slide-description {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 2%;
+    margin-left: 5%; }
+  .single-slide .slide-btn-link {
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-top: 20px;
+    margin-right: 10%;
+    padding: 10px 20px;
+    max-width: 200px;
+    text-align: center;
+    border: 3px solid #22252a;
+    background-color: transparent;
+    color: #22252a;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 700;
+    transition: 0.5s; }
+    .single-slide .slide-btn-link .btn-link-icon {
+      padding-left: 10px; }
+    .single-slide .slide-btn-link:hover {
+      background-color: #22252a;
+      color: #2eb2ff; }

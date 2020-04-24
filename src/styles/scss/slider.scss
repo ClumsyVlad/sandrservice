@@ -33,4 +33,45 @@
     justify-content: space-evenly;
     padding: 20px;
     height: 100%;
+
+    .slide-title {
+        font-size: 2rem;
+        margin-top: 2%;
+        margin-left: 5%;
+        font-weight: 700;
+        color: $brand-dark;
+    }
+
+    .slide-description {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-top: 2%;
+        margin-left: 5%;
+    }
+
+    .slide-btn-link {
+        justify-self: flex-end;
+        align-self: flex-end;
+        margin-top: 20px;
+        margin-right: 10%;
+        padding: 10px 20px;
+        max-width: 200px;
+        text-align: center;
+        border: 3px solid $brand-dark;
+        background-color: transparent;
+        color: $brand-dark;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        font-weight: 700;
+        transition: 0.5s;
+        
+        .btn-link-icon {
+            padding-left: 10px;
+        }
+
+        &:hover {
+            background-color: $brand-dark;
+            color: $brand-blue;
+        }
+    }
 }
