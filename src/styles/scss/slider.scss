@@ -67,11 +67,17 @@
         
         .btn-link-icon {
             padding-left: 10px;
+            transition: transform 0.5s;
+            transition: color 0;
         }
 
         &:hover {
             background-color: $brand-dark;
             color: $white;
+
+            .btn-link-icon {
+                transform: translateX(10px);
+            }
         }
     }
 }

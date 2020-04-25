@@ -17,7 +17,8 @@ html {
   color: #22252a; }
 
 main {
-  flex: 1 0 auto; }
+  flex: 1 0 auto;
+  overflow: hidden; }
 
 body {
   display: flex;
@@ -52,12 +53,12 @@ h3 {
   font-size: 20px;
   color: #22252a; }
 
-.h4 {
+h4 {
   font-weight: 600;
   font-size: 18px;
   color: #22252a; }
 
-.h5 {
+h5 {
   font-weight: 600;
   font-size: 16px;
   color: #22252a; }
@@ -189,7 +190,8 @@ input {
 
 .wrapper {
   max-width: 1920px;
-  margin: 0px auto; }
+  margin: 0px auto;
+  overflow: hidden; }
 
 .mg-t-30 {
   margin-top: 30px; }
@@ -483,24 +485,48 @@ a {
     .footer-nav-menu .footer-nav-menu-item .footer-nav-link {
       width: 100%; }
 
+@keyframes rotatebcg {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
 .error-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
+  justify-self: stretch;
   align-items: center;
-  align-content: center;
   padding: 20px 0px 30px;
-  width: 100%; }
+  min-height: 100%;
+  overflow: hidden; }
+  .error-page:after {
+    content: "";
+    background: url(../images/sng-logo.svg) no-repeat padding-box padding-box;
+    opacity: 0.3;
+    top: 15%;
+    left: 55%;
+    width: 55vw;
+    height: 55vw;
+    position: absolute;
+    z-index: -1;
+    animation: rotatebcg 20s linear infinite; }
+    @media screen and (max-width: 1100px) {
+      .error-page:after {
+        top: 40%;
+        left: 15%;
+        width: 55vh;
+        height: 55vh; } }
   .error-page .error-page-title {
-    font-size: 3rem;
+    font-size: 2rem;
     color: #2eb2ff; }
   .error-page .error-page-description {
-    font-size: 200px;
+    font-size: 10rem;
     color: #ff5c5c;
     font-weight: 700;
     text-align: center; }
   .error-page .error-page-explanation {
-    font-size: 30px;
+    font-size: 2rem;
     text-align: justify;
     color: #ff5c5c;
     font-weight: 700;
@@ -510,7 +536,7 @@ a {
     margin-top: 40px; }
     .error-page .error-page-path .error-page-link {
       color: #2eb2ff;
-      font-size: 25px;
+      font-size: 2rem;
       font-weight: 700;
       text-transform: uppercase;
       padding: 15px 30px;
@@ -518,6 +544,14 @@ a {
       .error-page .error-page-path .error-page-link:hover {
         background-color: #2eb2ff;
         color: #ffffff; }
+      @media screen and (max-width: 550px) {
+        .error-page .error-page-path .error-page-link {
+          font-size: 1.5rem; } }
+  @media screen and (max-width: 500px) {
+    .error-page .error-page-title {
+      font-size: 1.5rem; }
+    .error-page .error-page-description {
+      font-size: 5rem; } }
 
 /* slides */
 .main-slider-wrapper {
@@ -575,7 +609,11 @@ a {
     font-weight: 700;
     transition: 0.5s; }
     .single-slide .slide-btn-link .btn-link-icon {
-      padding-left: 10px; }
+      padding-left: 10px;
+      transition: transform 0.5s;
+      transition: color 0; }
     .single-slide .slide-btn-link:hover {
       background-color: #22252a;
       color: #ffffff; }
+      .single-slide .slide-btn-link:hover .btn-link-icon {
+        transform: translateX(10px); }
