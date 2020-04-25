@@ -47,65 +47,84 @@
     }
 }
 
-.grid-section {
+.grid-cards-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: minmax(300px, auto);
     gap: 10px;
 
-    .item-1 {
-        background-color: $brand-orange;
-    }
-    .item-2 {
-        background-color: $brand-blue;
-    }
-    .item-3 {
-        background-color: $brand-green;
-    }
-    .item-4 {
-        background-color: $brand-pink;
-    }
-
-    .right-item-0 {
-        grid-area: right-item-0;
-        background-color: $brand-blue;
-    }
-    .right-item-1 {
-        grid-area: right-item-1;
-        background: linear-gradient(150deg, $brand-blue, $brand-orange);
-    }
-    .right-item-2 {
-        grid-area: right-item-2;
-        background: linear-gradient(50deg, $brand-green, $brand-orange);
-    }
-    .right-item-3 {
-        grid-area: right-item-3;
-        background: linear-gradient(15deg, $brand-orange, $brand-blue);
-    }
-    .right-item-4 {
-        grid-area: right-item-4;
-        background: linear-gradient(150deg, $brand-orange, $brand-blue);
-    }
-    .right-item-5 {
-        grid-area: right-item-5;
-        background: linear-gradient(60deg, $brand-blue, $brand-pink);
-    }
-    .right-item-6 {
-        grid-area: right-item-6;
-        background: linear-gradient(150deg, $brand-blue, $brand-pink);
-    }
-}
-
-.grid-section-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: center;
-    padding: 20px;
-    transition: 0.5s;
-
-    .grid-item-img {
+    .grid-section-item {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: center;
+        height: 100%;
+
+        .grid-card-title {
+            align-self: flex-start;
+            background-color: $brand-dark;
+            color: $white;
+            padding: 15px 0px;
+            text-transform: uppercase;
+            width: 100%;
+            text-align: center;
+        }
+
+        .grid-card-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 40px 20px 20px;
+            justify-content: space-between;
+            filter: grayscale(80%);
+            transition: 0.5s;
+
+            &:hover {
+                filter: none;
+
+                .grid-card-link {
+                    background-color: $brand-dark;
+                    color: $white;
+                    .btn-link-icon {
+                        // animation: fadeInLeft 0.5s linear 0.5s;
+                        transform: translateX(10px);
+                    }
+                }
+            }
+            .grid-card-description {
+                font-size: 1.2rem;
+            }
+            
+            .grid-card-link {
+                padding: 10px 20px;
+                border: 3px solid $brand-dark;
+                align-self: flex-end;
+                text-transform: uppercase;
+                font-size: 1rem;
+                font-weight: 700;
+                transition: 0.5s;
+                color: $brand-dark;
+
+                .btn-link-icon {
+                    padding-left: 10px;
+                    transition: transform 0.5s;
+                    transition: color 0;
+                }
+            }
+        }
+    
+        .item-1 {
+            background-color: $brand-orange;
+        }
+        .item-2 {
+            background-color: $brand-blue;
+        }
+        .item-3 {
+            background-color: $brand-green;
+        }
+        .item-4 {
+            background-color: $brand-pink;
+        }
     }
 }
 
@@ -117,36 +136,6 @@
     grid-template-areas: 
     "help-section-1 help-section-2 help-section-3 help-section-3 help-section-4"
     "help-section-1 help-section-5 help-section-5 help-section-6 help-section-4";
-}
-
-.help-section-1{ 
-    grid-area: help-section-1;
-    background-color: $brand-blue;
-}
-
-.help-section-2{ 
-    grid-area: help-section-2;
-    background-color: $brand-gray;
-}
-
-.help-section-3{ 
-    grid-area: help-section-3;
-    background-color: $brand-green;
-}
-
-.help-section-4{ 
-    grid-area: help-section-4;
-    background-color: $brand-pink;
-}
-
-.help-section-5{ 
-    grid-area: help-section-5;
-    background-color: $brand-orange;
-}
-
-.help-section-6{ 
-    grid-area: help-section-6;
-    background-color: $brand-gray;
 }
 
 /* Block types */
@@ -287,36 +276,10 @@
 
     &:hover {
         background-color: $brand-blue;
-        color: #fff;
+        color: $white;
     }
 }
 
-/* checkbox */
-
-label {
-    vertical-align: middle;
-    cursor: pointer;
-}
-
-input[type="checkbox"] {
-    display: none;
-
-}
-input[type="checkbox"] + label:before {
-    display: inline-block;
-    font-family: "Font Awesome 5 Free";
-    content: "\f0c8";
-    color: $brand-blue;
-    font-size: 18px;
-    vertical-align: middle;
-}
-input[type="checkbox"] + label:hover:before {
-    color: $brand-orange;
-}
-input[type="checkbox"]:checked + label:before {
-    content: "\f14a";
-    animation: flip 0.5s;
-}
 
 
 /* global */
@@ -327,6 +290,52 @@ a {
 
     &:hover {
         color: $brand-orange;
-        transition: 0.3s;
     }
 }
+
+/* checkbox */
+
+.checkbox {
+    position: absolute;
+    width: 1px;
+    max-width: 1px;
+    height: 1px;
+    max-height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+.label {
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-visible:before {
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    content: "\f0c8";
+    color: $brand-blue;
+    font-size: 18px;
+    vertical-align: middle;
+    transition: 0.3s;
+}
+
+.label:hover .checkbox-visible:before {
+    color: $brand-green;
+}
+
+.checkbox:checked + .checkbox-visible:before {
+    content: "\f14a";
+    animation: flip 0.5s;
+}
+
+.checkbox:focus + .checkbox-visible:before {
+    color: $brand-orange;
+}
+
+.checkbox:disabled + .checkbox-visible:before {
+    color: $brand-gray;
+}
+
+/* global end */
