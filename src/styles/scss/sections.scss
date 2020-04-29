@@ -83,34 +83,17 @@
             &:hover {
                 filter: none;
 
-                .grid-card-link {
+                .btn-arrow {
                     background-color: $brand-dark;
                     color: $white;
-                    .btn-link-icon {
-                        // animation: fadeInLeft 0.5s linear 0.5s;
+
+                    .btn-icon {
                         transform: translateX(10px);
                     }
                 }
             }
             .grid-card-description {
                 font-size: 1.2rem;
-            }
-            
-            .grid-card-link {
-                padding: 10px 20px;
-                border: 3px solid $brand-dark;
-                align-self: flex-end;
-                text-transform: uppercase;
-                font-size: 1rem;
-                font-weight: 700;
-                transition: 0.5s;
-                color: $brand-dark;
-
-                .btn-link-icon {
-                    padding-left: 10px;
-                    transition: transform 0.5s;
-                    transition: color 0;
-                }
             }
         }
     
@@ -126,6 +109,31 @@
         .item-4 {
             background-color: $brand-pink;
         }
+    }
+}
+
+.btn-arrow {
+    padding: 10px 20px;
+    border: 3px solid $brand-dark;
+    align-self: flex-end;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: 0.5s;
+    color: $brand-dark;
+
+    &:hover {
+        background-color: $brand-dark;
+        color: $white;
+        .btn-icon {
+            transform: translateX(10px);
+        }
+    }
+
+    .btn-icon {
+        padding-left: 10px;
+        transition: transform 0.5s;
+        transition: color 0;
     }
 }
 
@@ -209,8 +217,42 @@
         width: 45%;
     }
 
-    .contact-result {
-        display: none;
+    .show-send-result {
+        display: flex !important;
+    }
+
+    .form-send-result {
+
+        .form-send-success, .form-send-failed {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-top: 20px;
+            
+            .success-description {
+                color: $brand-green;
+                font-weight: 700;
+                line-height: 1.5em;
+            }
+
+            .fail-description {
+                color: $brand-pink;
+                font-weight: 700;
+                line-height: 1.5em;
+            }
+
+            .contact-to-main {
+                border-color: $brand-dark;
+                color: $brand-dark;
+                align-self: flex-start;
+                margin-top: 20px;
+
+                &:hover {
+                    background-color: $brand-dark;
+                    color: $white;
+                }
+            }
+        }
     }
 }
 
@@ -314,7 +356,7 @@ a {
 
 .checkbox-visible:before {
     display: inline-block;
-    font-family: "Font Awesome 5 Free";
+    font-family: $awesome;
     content: "\f0c8";
     color: $brand-blue;
     font-size: 18px;

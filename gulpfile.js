@@ -6,6 +6,7 @@ const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
+// const phpserv = require('gulp-connect-php');
 const browserSync = require('browser-sync').create();
 const clean = require('gulp-clean');
 
@@ -22,6 +23,12 @@ function images() {
             })
         ]))
         .pipe(gulp.dest('./dist/images/'))
+};
+
+function phpBuild() {
+    return gulp.src('./src/php/*.php')
+        .pipe(gulp.dest('./dist/php/'))
+        .pipe(browserSync.stream())
 };
 
 function htmlBuild() {
@@ -58,6 +65,14 @@ function prefixMin() {
         .pipe(browserSync.stream())
 };
 
+// function phpserv () {
+    // php.server({
+    //     base: './dist/', 
+    //     port: 3000, 
+    //     keepalive: true
+    // });
+// };
+
 function watch () {
     browserSync.init ({
         server: {
@@ -67,6 +82,7 @@ function watch () {
     gulp.watch ('./src/**/*.scss', series (sassBuild, prefixMin));
     gulp.watch ('./src/**/*.css', prefixMin);
     gulp.watch ('./src/**/*.html', htmlBuild);
+    gulp.watch ('/src/**/*.php', phpBuild);
     gulp.watch ('./src/**/*.js', scriptsBuild);
     gulp.watch ('./src/imgs/*', images);
 };
@@ -82,6 +98,7 @@ function buildgit () {
 }
 
 exports.images = images;
+exports.phpBuild = phpBuild;
 exports.htmlBuild = htmlBuild;
 exports.scriptsBuild = scriptsBuild;
 exports.sassBuild = sassBuild;
@@ -90,8 +107,9 @@ exports.prefixMin = prefixMin;
 exports.mediaBuild = series(images);
 exports.styleBuild = series (sassBuild, prefixMin);
 exports.build = series(images, htmlBuild, scriptsBuild, sassBuild, prefixMin);
+// exports.phperv = phpserv;
 exports.watch = watch;
-exports.buildandwatch = series(images, htmlBuild, scriptsBuild, sassBuild, prefixMin, watch);
+exports.magic = series(images, phpBuild, htmlBuild, scriptsBuild, sassBuild, prefixMin, watch);
 
 exports.cleangit = cleangit;
 exports.buildgit = buildgit;

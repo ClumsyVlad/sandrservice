@@ -13,7 +13,7 @@
                     <div class="double-block">
                         <div class="contact-form">    
                             <h5 class="sub-title">Forma kontaktowa</h5>
-                            <form>
+                            <form id="contact-form" method="post">
                                 <div class="contact-item">
                                     <label class="contact-input">
                                         <input type="text" id="name" name="name" placeholder="Imię i nazwisko" required>
@@ -40,16 +40,22 @@
                                     </label>
                                 </div>
                                 <div class="contact-item">
-                                    <span class="contact-rules">Info z linkiem na <a href="/privacy.html" class="contacts-link">REDO</a></span>
-                                </div>
-                                <div class="contact-result">
-                                    <span class="contact-result-true">Udało się</span>
-                                    <span class="contact-result-false">Nie udało się</span>
+                                    <span class="contact-rules">Info z linkiem na <a href="/privacy.html" class="contacts-link">RODO</a></span>
                                 </div>
                                 <div class="contact-item">
                                     <button class="btn" type="submit" id="contact-button" name="contact-button">Wyślij</button>
                                 </div>
                             </form>
+                            <div class="form-send-result">
+                                <div class="form-send-success">
+                                    <p class="success-description">Twój email został wysłany. Czekaj na kontakt.</p>
+                                    <a href="/" class="btn-arrow btn contact-to-main">Do głownej<i class="fas fa-chevron-right btn-icon"></i></a>
+                                </div>
+                                <div class="form-send-failed">
+                                    <p class="fail-description">Nie udało się wysłać list. Sprawdź dane i sprobuj jeszcze raz lub skontaktuj się inaczej.</p>
+                                    <a href="/" class="btn-arrow btn contact-to-main">Do głownej<i class="fas fa-chevron-right btn-icon"></i></a>
+                                </div>
+                            </div>
                         </div>
                         <div class="contact-block">
                             <h5 class="sub-title">Dane kontaktowe</h5>
@@ -78,5 +84,6 @@
         </main>
     //= partials/footer.html
     //= partials/scripts.html
+    <script src="./js/contact.js"></script>
 </body>
 </html>
