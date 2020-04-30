@@ -65,14 +65,6 @@ function prefixMin() {
         .pipe(browserSync.stream())
 };
 
-// function phpserv () {
-    // php.server({
-    //     base: './dist/', 
-    //     port: 3000, 
-    //     keepalive: true
-    // });
-// };
-
 function watch () {
     browserSync.init ({
         server: {
@@ -82,7 +74,7 @@ function watch () {
     gulp.watch ('./src/**/*.scss', series (sassBuild, prefixMin));
     gulp.watch ('./src/**/*.css', prefixMin);
     gulp.watch ('./src/**/*.html', htmlBuild);
-    gulp.watch ('/src/**/*.php', phpBuild);
+    gulp.watch ('./src/**/*.php', phpBuild);
     gulp.watch ('./src/**/*.js', scriptsBuild);
     gulp.watch ('./src/imgs/*', images);
 };
@@ -107,7 +99,6 @@ exports.prefixMin = prefixMin;
 exports.mediaBuild = series(images);
 exports.styleBuild = series (sassBuild, prefixMin);
 exports.build = series(images, htmlBuild, scriptsBuild, sassBuild, prefixMin);
-// exports.phperv = phpserv;
 exports.watch = watch;
 exports.magic = series(images, phpBuild, htmlBuild, scriptsBuild, sassBuild, prefixMin, watch);
 
