@@ -6,7 +6,6 @@ const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
-// const phpserv = require('gulp-connect-php');
 const browserSync = require('browser-sync').create();
 const clean = require('gulp-clean');
 
@@ -40,7 +39,7 @@ function htmlBuild() {
 
 function scriptsBuild() {
     return gulp.src('./src/js/*.js')
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest('./dist/js/'))
         .pipe(browserSync.stream())
 };
@@ -100,7 +99,7 @@ exports.mediaBuild = series(images);
 exports.styleBuild = series (sassBuild, prefixMin);
 exports.build = series(images, htmlBuild, scriptsBuild, sassBuild, prefixMin);
 exports.watch = watch;
-exports.magic = series(images, phpBuild, htmlBuild, scriptsBuild, sassBuild, prefixMin, watch);
+exports.magic = series(images, phpBuild, htmlBuild, scriptsBuild, sassBuild, prefixMin, watch); 
 
 exports.cleangit = cleangit;
 exports.buildgit = buildgit;

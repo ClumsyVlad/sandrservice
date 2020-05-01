@@ -7,14 +7,17 @@ $(function() {
     http.onreadystatechange = function() {
       if (http.readyState == 4 && http.status == 200) {
         alert('norm');
-        // document.getElementsByClassName('.form-send-success').classList.add('.show-send-result');
-        // console.log('Successful form submission.');
-      } {
-        // document.getElementsByClassName('.form-send-failed').classList.add('.show-send-result');
-        // console.log('Error submitting form.\nTry to refresh the page and send again or contact via the specified contact details.');
+        $('.form-send-success').addClass('show-send-result');
+        console.log('worked')
+      } /*{
         alert('not norm');
         $('.form-send-failed').addClass('show-send-result');
         console.log('notnot');
+      }*/
+      if (http.onerror) {
+        alert('not worked');
+        $('.form-send-failed').addClass('show-send-result');
+        comsole.log('not worked');
       }
     }
     // http.onerror = function() {

@@ -49,8 +49,13 @@
                     <div class="double-block">
                         <div class="contact-form">    
                             <h5 class="sub-title">Forma kontaktowa</h5>
-                            <form action="" id="contact-form" method="post">
+                            <form action="http://localhost:9999/php/fetchphp.php" id="contact-form" method="post">
                                 <div class="contact-item">
+                                    <!-- Hidden info inputs -->
+                                    <input type="hidden" name="site_name" value="S&R Work Service"> 
+                                    <input type="hidden" name="recipient_email"  value="mazur097mazur@gmail.com">
+                                    <input type="hidden" name="form_subject" value="Form from contacts page">
+                                    <!-- Inputs for user -->
                                     <label class="contact-input">
                                         <input type="text" id="name" name="name" placeholder="Imię i nazwisko" required>
                                     </label>
@@ -156,6 +161,6 @@
         <!-- Project scripts end-->
     
     <!-- End of scripts libs -->
-    <script src="./js/contact.js"></script>
+    <script src="./js/fetchform.js"></script>
 </body>
 </html>
