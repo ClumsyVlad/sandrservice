@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const ajaxSend = (formData) => {
-        fetch('http://localhost:9999/php/fetchphp.php', { // файл-обработчик 
+        fetch('http://localhost:9999/fetchphp.php', { // файл-обработчик 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded', // отправляемые данные 
