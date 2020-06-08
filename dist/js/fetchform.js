@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', (e) => {
 
     const ajaxSend = (formData) => {
-        fetch('http://localhost:9999/fetchphp.php', { // файл-обработчик 
+        fetch('path-to-php/fetchphp.php', { // файл-обработчик 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded', // отправляемые данные 
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error(error))
     };
 
-    const forms = document.getElementsByTagName('form');
+    const forms = document.getElementsById('contact-form');
     for (let i = 0; i < forms.length; i++) {
         forms[i].addEventListener('submit', function (e) {
             e.preventDefault();
