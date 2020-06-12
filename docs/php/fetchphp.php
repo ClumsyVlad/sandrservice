@@ -34,4 +34,4 @@ $headers = "MIME-Version: 1.0" . PHP_EOL .
 'From: '.adopt($site_name).' <'.$recipient_email.'>' . PHP_EOL .
 'Reply-To: '.$recipient_email.'' . PHP_EOL;
 
-mail($recipient_email, adopt($form_subject), $message, $headers );
+mail($recipient_email, adopt($form_subject), $message, $headers);
